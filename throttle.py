@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 """
-The Throtle module provides one class and one function that can be used to
+The Throttle module provides one class and one function that can be used to
 set a maximum throughput on data passing between files or applications.
 """
 
@@ -16,16 +16,16 @@ def speed_str(speed):
     else:
         return '{:,.4}'.format(speed) + ' B/s'
 
-class Throtle(object):
+class Throttle(object):
     """
-    The Throtle class implements a file copier that limits the throughput to a
+    The Throttle class implements a file copier that limits the throughput to a
     maximum value specified at the time of creation.
 
     Instantiate the class using the following syntax:
     Speedometer(in_fd, out_fd, info_fd, speed)
 
     For example:
-    throtle = Throtle(sys.stdin, file('output.data'), sys.stderr, 9600)
+    throttle = Throttle(sys.stdin, file('output.data'), sys.stderr, 9600)
     """
 
     def __init__(self, in_fd, out_fd, info_fd, speed_bps):
@@ -95,5 +95,5 @@ class Throtle(object):
 
 if __name__ == '__main__':
     import sys
-    THROTLE = Throtle(sys.stdin, sys.stdout, sys.stderr, int(sys.argv[1]))
-    THROTLE.start()
+    THROTTLE = Throttle(sys.stdin, sys.stdout, sys.stderr, int(sys.argv[1]))
+    THROTTLE.start()
